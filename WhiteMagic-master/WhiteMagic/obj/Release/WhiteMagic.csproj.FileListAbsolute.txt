@@ -1,0 +1,6 @@
+C:\Users\Katuro\documents\visual studio 2015\Projects\D2NG 1.0\WhiteMagic-master\WhiteMagic\bin\Release\WhiteMagic.dll
+C:\Users\Katuro\documents\visual studio 2015\Projects\D2NG 1.0\WhiteMagic-master\WhiteMagic\bin\Release\WhiteMagic.pdb
+C:\Users\Katuro\documents\visual studio 2015\Projects\D2NG 1.0\WhiteMagic-master\WhiteMagic\bin\Release\fasmdll_managed.dll
+C:\Users\Katuro\documents\visual studio 2015\Projects\D2NG 1.0\WhiteMagic-master\WhiteMagic\obj\Release\WhiteMagic.csprojResolveAssemblyReference.cache
+C:\Users\Katuro\documents\visual studio 2015\Projects\D2NG 1.0\WhiteMagic-master\WhiteMagic\obj\Release\WhiteMagic.dll
+C:\Users\Katuro\documents\visual studio 2015\Projects\D2NG 1.0\WhiteMagic-master\WhiteMagic\obj\Release\WhiteMagic.pdb
