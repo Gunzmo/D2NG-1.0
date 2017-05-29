@@ -1,0 +1,22 @@
+﻿<Window x:Class="D2NG.UI.ChattWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:D2NG.UI"
+        mc:Ignorable="d"
+        Background="#19232A78"
+        Title="ChattWindow" Height="150" Width="290" ResizeMode="NoResize" Topmost="True" ShowInTaskbar="False" WindowStyle="None" AllowsTransparency="True" MouseLeave="Window_MouseLeave">
+    <Grid>
+        <TextBox FontFamily="/D2NG 1.0;component/Resources/#AvQest" x:Name="textBox" Margin="10,119,10,8" TextWrapping="Wrap" Background="White" KeyDown="textBox_KeyDown" TextChanged="textBox_TextChanged" SpellCheck.IsEnabled="True"/>
+        <RichTextBox FontFamily="/D2NG 1.0;component/Resources/#AvQest" IsReadOnly="True" x:Name="richTextBox" Margin="10,26,10,40">
+            <FlowDocument/>
+        </RichTextBox>
+        <Grid x:Name="ChatLabel" HorizontalAlignment="Right" Width="21" Height="56" VerticalAlignment="Top">
+            <Label Content="C" HorizontalAlignment="Left" Margin="0,-3,0,0" VerticalAlignment="Top" MouseEnter="Label_MouseEnter" Foreground="Red"/>
+            <Label Content="H" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" MouseEnter="Label_MouseEnter" Foreground="Red"/>
+            <Label Content="A" HorizontalAlignment="Left" Margin="0,21,0,0" VerticalAlignment="Top" MouseEnter="Label_MouseEnter" Foreground="Red"/>
+            <Label Content="T" HorizontalAlignment="Left" Margin="1,34,0,0" VerticalAlignment="Top" MouseEnter="Label_MouseEnter" Foreground="Red"/>
+        </Grid>
+    </Grid>
+</Window>

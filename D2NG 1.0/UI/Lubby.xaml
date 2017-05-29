@@ -1,0 +1,514 @@
+﻿<UserControl x:Class="D2NG.UI.Lubby"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:D2NG.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800
+             ">
+    <Grid Background="Black">
+        <Label Foreground="#FF6C5B0F" x:Name="JoinMessages" Content="Game is full" Visibility="Hidden" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="515,297,0,0" VerticalAlignment="Top" Width="275" FontSize="20" Height="123"/>
+        <TabControl x:Name="GameModeSelect" Margin="0,48,10,47" IsSynchronizedWithCurrentItem="False" Background="{x:Null}" HorizontalAlignment="Right" Width="275">
+            <TabItem FontFamily="/D2NG 1.0;component/Resources/#AvQest" Header="Battle.net Games">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                        <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Margin="0,-4,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" TextWrapping="Wrap" Text="Game name" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FF6C5B0F" GotFocus="gameNameGotfocus" LostFocus="gameNamelostFocus">
+                        <TextBox.BorderBrush>
+                            <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBox.BorderBrush>
+                    </TextBox>
+                    <Label x:Name="PasswordPlaceholder" Content="Password" HorizontalAlignment="Left" Foreground="#FF6C5B0F" Margin="10,35,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+                    <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="10,37,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="#FF6C5B0F" Background="{x:Null}" GotFocus="passwordGotFocus" LostFocus="passwordLostFocus">
+                        <TextBox.BorderBrush>
+                            <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBox.BorderBrush>
+                    </TextBox>
+                    <Button x:Name="button" Content="Join" HorizontalAlignment="Left" Margin="158,10,0,0" VerticalAlignment="Top" Width="97" Background="{x:Null}" BorderBrush="#FF6C5B0F" Foreground="#FF6C5B0F" Click="button_Click"/>
+                    <Button x:Name="button1" Content="Refresh" HorizontalAlignment="Left" Margin="158,37,0,0" VerticalAlignment="Top" Width="97" BorderBrush="Black" Foreground="#FF6C5B0F" Background="{x:Null}" Click="button1_Click"/>
+                    <Label x:Name="label12" Content="Search" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Width="64" Foreground="#FF6C5B0F"/>
+                    <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="10,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="245" Background="{x:Null}" Foreground="#FF6C5B0F" GotFocus="textBox3_GotFocus" LostFocus="textBox3_LostFocus" TextChanged="textBox3_TextChanged">
+                        <TextBox.BorderBrush>
+                            <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBox.BorderBrush>
+                    </TextBox>
+                    <ListBox x:Name="bnetGames" Margin="10,102,10,10" Background="{x:Null}" Foreground="#FF6C5B0F" SelectionChanged="bnetGames_SelectionChanged" MouseDoubleClick="button_Click">
+                        <ListBox.BorderBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="White" Offset="0"/>
+                                <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ListBox.BorderBrush>
+                    </ListBox>
+
+                </Grid>
+            </TabItem>
+            <TabItem FontFamily="/D2NG 1.0;component/Resources/#AvQest" Header="Create Game">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                        <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid>
+                    <TextBox x:Name="GameName" Height="23" Margin="20,10,125,0" TextWrapping="Wrap" Text="Game name" VerticalAlignment="Top" Foreground="#FF6C5B0F" Background="{x:Null}" LostFocus="gameNamelostFocus" GotFocus="gameNameGotfocus">
+                        <TextBox.BorderBrush>
+                            <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBox.BorderBrush>
+                    </TextBox>
+                    <Label x:Name="label10" Content="Password" HorizontalAlignment="Left" Margin="20,38,0,0" VerticalAlignment="Top" Width="120" Height="23" Foreground="#FF6C5B0F"/>
+                    <TextBox x:Name="Password" Height="23" Margin="20,38,125,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF6C5B0F" OpacityMask="White" CaretBrush="White" GotFocus="Password_GotFocus" LostFocus="Password_LostFocus">
+                        <TextBox.BorderBrush>
+                            <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBox.BorderBrush>
+                    </TextBox>
+                    <Label x:Name="label11" Content="Description" HorizontalAlignment="Left" Margin="20,64,0,0" VerticalAlignment="Top" Width="120" Height="28" Foreground="#FF6C5B0F"/>
+                    <TextBox x:Name="Description" Height="23" Margin="20,66,125,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.478" Background="{x:Null}" Foreground="#FF6C5B0F" LostFocus="Description_LostFocus" GotFocus="Description_GotFocus">
+                        <TextBox.BorderBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF6C5B0F" Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBox.BorderBrush>
+                    </TextBox>
+                    <TextBox x:Name="MaxCharacters" HorizontalAlignment="Left" Height="23" Margin="111,97,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="29" Background="{x:Null}" Foreground="#FF6C5B0F">
+                        <TextBox.BorderBrush>
+                            <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBox.BorderBrush>
+                    </TextBox>
+                    <CheckBox x:Name="checkBox" Content="D2NG Game" HorizontalAlignment="Right" Margin="0,10,9,0" VerticalAlignment="Top" Foreground="#FF6C5B0F" Background="{x:Null}" IsChecked="False" IsEnabled="False" BorderBrush="#FF6C5B0F" Click="checkBox_Click"/>
+                    <RadioButton x:Name="radioButton3" Content="Normal" Margin="0,64,36,0" VerticalAlignment="Top" Foreground="#FF6C5B0F" BorderBrush="#FF6C5B0F" Background="#FF6C5B0F" IsChecked="True" Checked="radioButton3_Checked" HorizontalAlignment="Right" Width="56"/>
+                    <RadioButton x:Name="radioButton4" Content="Nightmare" Margin="0,80,19,0" VerticalAlignment="Top" Background="#FF6C5B0F" Foreground="#FF6C5B0F" Checked="radioButton4_Checked" HorizontalAlignment="Right" Width="73" IsEnabled="False"/>
+                    <RadioButton x:Name="radioButton5" Content="Hell" HorizontalAlignment="Right" Margin="0,95,55,0" VerticalAlignment="Top" Foreground="#FF6C5B0F" Background="#FF6C5B0F" BorderBrush="#FF6C5B0F" Checked="radioButton5_Checked" IsEnabled="False"/>
+                    <Button x:Name="button5" Content="Create" HorizontalAlignment="Left" Margin="20,97,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" BorderBrush="#FF6C5B0F" Foreground="#FF6C5B0F" Click="button5_Click"/>
+                    <Label x:Name="label8" Content="Credits:" Margin="95,0,107,305" VerticalAlignment="Bottom" Foreground="#FF6C5B0F" FontSize="16"/>
+                    <Label x:Name="label1" Content="&#xA;Special thanks to&#xA;casualcat for memory pointers&#xA;I've could not had done this without him&#xA;&#xA;r57shell alot of help&#xA;&#xA;Zakamurite for Dirty Deeds&#xA; / Information on WhiteMagic &#xA;(RECT for ingame window possiton)&#xA;&#xA;E.T.@BH for D2Smells &#xA;Character list structure,&#xA;Game list structure&#xA;&#xA;mboufos for finding a cool font&#xD;&#xA;&#xA;drDentist Bug Test&#xD;&#xA;&#xA;Gunzmo for making D2NG &#xA;and hosting server" Margin="20,0,19,5" Foreground="#FF6C5B0F" Height="330" VerticalAlignment="Bottom">
+                        <Label.BorderBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFE0C30E" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Label.BorderBrush>
+                    </Label>
+                    <CheckBox x:Name="checkBox2" IsEnabled="False" Content="Not Listed" HorizontalAlignment="Left" Margin="173,26,0,0" VerticalAlignment="Top" BorderBrush="#FF6C5B0F" Foreground="#FF6C5B0F" Background="{x:Null}"/>
+                </Grid>
+            </TabItem>
+            <TabItem FontFamily="/D2NG 1.0;component/Resources/#AvQest" x:Name="D2NGGameTab" Visibility="Hidden" Header="D2NG Games">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                        <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid>
+                    <Button x:Name="button4" Content="Refresh" HorizontalAlignment="Left" Margin="24,7,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF6C5B0F" Foreground="#FF5B5124" Background="{x:Null}" Click="button4_Click"/>
+                    <Button x:Name="button3" Content="Join" HorizontalAlignment="Left" Margin="171,7,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF6C5B0F" Foreground="#FF6C5B0F" Background="{x:Null}" Click="button3_Click"/>
+                    <RadioButton x:Name="D2NGNormal" Content="Normal" HorizontalAlignment="Left" Margin="0,29,0,0" VerticalAlignment="Top" Background="#FF6C5B0F" BorderBrush="#FF6C5B0F" Foreground="#FF6C5B0F" IsChecked="True" Checked="D2NGNormal_Checked"/>
+                    <RadioButton x:Name="D2NGNightmare" IsEnabled="False" Content="Nightmare" HorizontalAlignment="Left" Margin="75,29,0,0" VerticalAlignment="Top" Foreground="#FF6C5B0F" BorderBrush="#FF6C5B0F" Checked="D2NGNightmare_Checked"/>
+                    <RadioButton x:Name="D2NGHell" IsEnabled="False" Content="Hell" HorizontalAlignment="Left" Margin="171,29,0,0" VerticalAlignment="Top" BorderBrush="#FF6C5B0F" Foreground="#FF6C5B0F" Checked="D2NGHell_Checked"/>
+                    <RadioButton x:Name="D2NGAll" IsEnabled="False" Content="All" HorizontalAlignment="Left" Margin="230,30,0,0" VerticalAlignment="Top" Foreground="#FF6C5B0F" Background="#FF6C5B0F" BorderBrush="#FF6C5B0F" Checked="D2NGAll_Checked" RenderTransformOrigin="-0.7,0.4"/>
+                    <Label x:Name="label13" Content="Search" HorizontalAlignment="Left" Margin="24,48,0,0" VerticalAlignment="Top" Foreground="#FF6C5B0F"/>
+                    <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="23" Margin="24,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="222" Foreground="#FF6C5B0F" Background="{x:Null}" GotFocus="textBox_GotFocus" LostFocus="textBox_LostFocus" TextChanged="textBox4_TextChanged">
+                        <TextBox.BorderBrush>
+                            <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBox.BorderBrush>
+                    </TextBox>
+                    <ListView x:Name="D2NGGameList" HorizontalAlignment="Left" Height="200" Margin="10,78,0,0" VerticalAlignment="Top" Width="245" Background="{x:Null}" Foreground="#FF6C5B0F" SelectionChanged="D2NGGameList_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Game Name" Width="130" DisplayMemberBinding="{Binding Gamename}"/>
+                                <GridViewColumn Header="Difficulty" Width="55" DisplayMemberBinding="{Binding Difficulty}" />
+                                <GridViewColumn Header="Players" Width="50" DisplayMemberBinding="{Binding Players}" />
+                            </GridView>
+                        </ListView.View>
+                        <ListView.BorderBrush>
+                            <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ListView.BorderBrush>
+                    </ListView>
+                    <RichTextBox IsReadOnly="True" x:Name="GameDescripton" HorizontalAlignment="Left" Height="150" Margin="10,283,0,0" VerticalAlignment="Top" Width="245" Background="{x:Null}" Foreground="#FF6C5B0F" TextInput="richTextBox1_TextInput">
+                        <RichTextBox.BorderBrush>
+                            <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </RichTextBox.BorderBrush>
+                    </RichTextBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Grid Margin="10,10,0,10" HorizontalAlignment="Left" Width="500">
+            <WebBrowser x:Name="ADS" Margin="10,27,10,473"/>
+            <Grid Height="468" Margin="0,112,0,0" VerticalAlignment="Top">
+                <TabControl x:Name="GeneralTabs" Height="463" Margin="10,0,18,0" VerticalAlignment="Top" Background="{x:Null}" Visibility="Hidden">
+                    <TabItem Header="Chat">
+                        <TabItem.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="Black" Offset="0.998"/>
+                            </LinearGradientBrush>
+                        </TabItem.Background>
+                        <Grid Margin="0,2,0,-2" OpacityMask="White">
+                            <TextBox x:Name="textBox2" Margin="0,399,76,0" TextWrapping="Wrap" Text="Message" Background="{x:Null}" Foreground="#FFE0C30E" KeyDown="textBox2_KeyDown" GotFocus="textBox2_GotFocus" LostFocus="textBox2_LostFocus" Height="22" VerticalAlignment="Top" TextChanged="textBox2_TextChanged">
+                                <TextBox.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                        <GradientStop Color="White"/>
+                                        <GradientStop Color="White" Offset="0.272"/>
+                                        <GradientStop Color="#FFE0C30E" Offset="1"/>
+                                        <GradientStop Color="#FFE0C93B" Offset="0.731"/>
+                                    </LinearGradientBrush>
+                                </TextBox.BorderBrush>
+                            </TextBox>
+                            <Button x:Name="button2" Content="Send" Margin="391,399,0,0" BorderBrush="#FF6C5B0F" Foreground="#FF6C5B0F" Background="{x:Null}" Click="button2_Click" Height="22" VerticalAlignment="Top"/>
+                            <RichTextBox IsReadOnly="True" x:Name="MessageBox" Height="394" VerticalAlignment="Top" Foreground="#FF8F8F1C" Background="{x:Null}" TextInput="MessageBox_TextInput" Margin="0,0,181,0">
+                                <RichTextBox.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="#FF8B910A" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </RichTextBox.BorderBrush>
+                                <FlowDocument>
+                                    <Paragraph>
+                                        <Run Text="Type /h"/>
+                                        <Run Text=" or"/>
+                                        <Run Text=" /help"/>
+                                        <Run Text=" or /?"/>
+                                        <Run Text=" for"/>
+                                        <Run Text=" more"/>
+                                        <Run Text=" information"/>
+                                    </Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
+                            <ListBox x:Name="ChannelUsers" Margin="286,30,10,37" Background="{x:Null}" Foreground="#FF5B5124">
+                                <ListBox.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF5B5124" Offset="0"/>
+                                        <GradientStop Color="White" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </ListBox.BorderBrush>
+                            </ListBox>
+                            <Label x:Name="label4" Content="Users in Channel:" Margin="286,4,75,401" Foreground="#FF6C5B0F"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Friends">
+                        <TabItem.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="Black" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TabItem.Background>
+                        <Grid>
+                            <TextBox x:Name="textBox7" HorizontalAlignment="Left" Height="23" Margin="10,9,0,0" TextWrapping="Wrap" Text="D2NG Username Name" VerticalAlignment="Top" Width="170" Background="{x:Null}" Foreground="#FF6C5B0F" GotFocus="textBox7_GotFocus" LostFocus="textBox7_LostFocus">
+                                <TextBox.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                        <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                        <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                        <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </TextBox.BorderBrush>
+                            </TextBox>
+                            <Button x:Name="button6" Content="Add Friend" HorizontalAlignment="Left" Margin="185,10,0,0" VerticalAlignment="Top" Width="97" Background="{x:Null}" Foreground="#FF6C5B0F" BorderBrush="#FF6C5B0F" Click="button6_Click"/>
+                            <ListView x:Name="FriendsList" HorizontalAlignment="Left" Height="373" Margin="10,48,0,0" VerticalAlignment="Top" Width="442" Background="{x:Null}" Foreground="#FF6C5B0F" SelectedItem="{Binding Friends}" MouseRightButtonDown="FriendsList_MouseRightButtonDown" SelectionChanged="FriendsList_SelectionChanged">
+                                <ListView.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF6C5B0F" Offset="0"/>
+                                        <GradientStop Color="White" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </ListView.BorderBrush>
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Account" Width="135" DisplayMemberBinding="{Binding Account}" />
+                                        <GridViewColumn Header="Character" DisplayMemberBinding="{Binding CharacterName}" Width="135"/>
+                                        <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="163" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Clans" Visibility="Hidden">
+                        <TabItem.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="Black" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TabItem.Background>
+                        <Grid>
+                            <ListBox x:Name="ClanList" HorizontalAlignment="Left" Height="383" Margin="287,10,0,0" VerticalAlignment="Top" Width="165" Background="{x:Null}" Foreground="#FF6C5B0F">
+                                <ListBox.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                        <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                        <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                        <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </ListBox.BorderBrush>
+                            </ListBox>
+                            <TextBox x:Name="ClanMessage" HorizontalAlignment="Left" Height="23" Margin="10,404,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="374" Background="{x:Null}" Foreground="#FF6C5B0F">
+                                <TextBox.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                        <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                        <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                        <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </TextBox.BorderBrush>
+                            </TextBox>
+                            <RichTextBox x:Name="ClanChat" HorizontalAlignment="Left" Height="383" Margin="10,10,0,0" VerticalAlignment="Top" Width="272" Foreground="#FF6C5B0F" Background="{x:Null}" BorderBrush="{x:Null}">
+                                <FlowDocument/>
+                            </RichTextBox>
+                            <Button x:Name="ClanSend" Content="Send" HorizontalAlignment="Left" Margin="387,404,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" Foreground="#FF6C5B0F">
+                                <Button.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                        <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                        <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.BorderBrush>
+                            </Button>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="ACP" Visibility="Hidden">
+                        <TabItem.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="Black" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TabItem.Background>
+                        <Grid Background="Black" Margin="0,1,0,-1">
+                            <TabControl x:Name="tabControl" Margin="10,0,0,0" Background="Black">
+                                <TabItem Header="Admin" Visibility="Hidden" x:Name="AdminTab">
+                                    <TabItem.Background>
+                                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                            <GradientStop Color="Black" Offset="0"/>
+                                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                            <GradientStop Color="White" Offset="0.5"/>
+                                            <GradientStop Color="Black" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </TabItem.Background>
+                                    <Grid Background="{x:Null}">
+                                        <Label x:Name="label2" Content="Online Users:" HorizontalAlignment="Left" Margin="237,34,0,0" VerticalAlignment="Top" Foreground="#FF6C5B0F" Width="195" Height="26"/>
+                                        <Button x:Name="button8" Content="Promote" HorizontalAlignment="Left" Margin="11,7,0,0" VerticalAlignment="Top" Width="75" Background="Black" Foreground="#FF6C5B0F" BorderBrush="#FF6C5B0F" Click="button8_Click" Height="22"/>
+                                        <RadioButton x:Name="PromoteAdmin" Content="Admin" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Background="#FF6C5B0F" BorderBrush="#FF6C5B0F" Foreground="#FF6C5B0F" Height="16" Width="51"/>
+                                        <RadioButton x:Name="ModPremote" Content="Moderator" HorizontalAlignment="Left" Margin="9,60,0,0" VerticalAlignment="Top" Foreground="#FF6C5B0F" Width="75" BorderBrush="#FF6C5B0F" Background="Black" Height="16"/>
+                                        <RadioButton x:Name="UserPremote" Content="User" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Foreground="#FF6C5B0F" Background="Black" BorderBrush="#FF6C5B0F" Height="16" Width="40"/>
+                                        <Label x:Name="label3" Content="Moderators:" HorizontalAlignment="Left" Margin="9,102,0,0" VerticalAlignment="Top" Foreground="#FF6C5B0F" Height="26" Width="74"/>
+                                        <ListBox x:Name="ModList" HorizontalAlignment="Left" Height="256" Margin="10,133,0,0" VerticalAlignment="Top" Width="207" Background="Black" Foreground="#FF6C5B0F" SelectionChanged="ModList_SelectionChanged"/>
+                                        <TextBox x:Name="PremoteUserName" HorizontalAlignment="Left" Height="23" Margin="237,7,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="195" Background="#FF020202" Foreground="#FF6C5B0F" GotFocus="PremoteUserName_GotFocus" LostFocus="PremoteUserName_LostFocus"/>
+                                        <ListBox x:Name="OnlineUsers" HorizontalAlignment="Left" Height="331" Margin="237,58,0,0" VerticalAlignment="Top" Width="205" Foreground="#FF6C5B0F" Background="Black" SelectionChanged="OnlineUsers_SelectionChanged">
+                                            <ListBox.BorderBrush>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF6C5B0F" Offset="0"/>
+                                                    <GradientStop Color="White" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </ListBox.BorderBrush>
+                                        </ListBox>
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Reports" Margin="-1,0,-3,-3">
+                                    <TabItem.Background>
+                                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                            <GradientStop Color="Black" Offset="0"/>
+                                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                            <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                            <GradientStop Color="Black" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </TabItem.Background>
+                                    <Grid Background="Black">
+                                        <TextBox x:Name="ReportUserName" HorizontalAlignment="Left" Height="23" Margin="10,9,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="176" Background="Black" Foreground="#FF6C5B0F">
+                                            <TextBox.BorderBrush>
+                                                <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                                    <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                                    <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                                    <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </TextBox.BorderBrush>
+                                        </TextBox>
+                                        <DatePicker x:Name="banTime" HorizontalAlignment="Left" Margin="200,8,0,0" VerticalAlignment="Top" Width="168" Background="{x:Null}" Foreground="#FF6C5B0F" OpacityMask="White">
+                                            <DatePicker.BorderBrush>
+                                                <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                                                    <GradientStop Color="White" Offset="0"/>
+                                                    <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </DatePicker.BorderBrush>
+                                        </DatePicker>
+                                        <CheckBox x:Name="checkBox1" Content="IP Ban" HorizontalAlignment="Left" Margin="382,12,0,0" VerticalAlignment="Top" Foreground="#FF6C5B0F" Background="{x:Null}" BorderBrush="#FF6C5B0F"/>
+                                        <Button x:Name="button7" Content="Ban" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="75" BorderBrush="Black" Background="Black" Foreground="#FF6C5B0F" Click="button7_Click"/>
+                                        <Button x:Name="button10" Content="Remove Report" HorizontalAlignment="Left" Margin="90,37,0,0" VerticalAlignment="Top" Width="113" Foreground="#FF6C5B0F" BorderBrush="#FF6C5B0F" Background="Black" Click="button10_Click"/>
+                                        <ListView x:Name="ReportList" HorizontalAlignment="Left" Height="333" Margin="10,66,0,0" VerticalAlignment="Top" Width="432" Foreground="#FF6C5B0F" Background="Black" SelectionChanged="listView_SelectionChanged">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Header="Account" Width="135">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Path=Account}"/>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+                                                    <GridViewColumn Header="Reporter" Width="135">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Path=Reporter}"/>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+
+                                                    <GridViewColumn Header="Date" Width="168">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Path=DateTime}"/>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                    </Grid>
+                                </TabItem>
+                            </TabControl>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+                <TabControl x:Name="SessionTabs" HorizontalAlignment="Left" Height="463" VerticalAlignment="Top" Width="500" Visibility="Visible" Background="{x:Null}">
+                    <TabItem FontFamily="/D2NG 1.0;component/Resources/#AvQest" Header="Login">
+                        <TabItem.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="Black" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TabItem.Background>
+                        <Grid Background="Black">
+                            <TextBox x:Name="textBox5" HorizontalAlignment="Left" Height="31" Margin="141,143,0,0" TextWrapping="Wrap" Text="Account" VerticalAlignment="Top" Width="162" TextAlignment="Center" FontSize="18" Foreground="#FF6C5B0F" Background="{x:Null}" GotFocus="textBox5_GotFocus" LostFocus="textBox5_LostFocus"/>
+                            <Label  x:Name="D2NGPasswordPlaceHolder" Content="Password" HorizontalAlignment="Left" Margin="177,179,0,0" VerticalAlignment="Top" Width="84" Foreground="#FF6C5B0F" FontSize="18" Background="{x:Null}"/>
+                            <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="141,179,0,0" VerticalAlignment="Top" Width="162" Height="35" FontSize="24" Foreground="#FF6C5B0F" Background="{x:Null}" GotFocus="passwordBox_GotFocus" LostFocus="passwordBox_LostFocus"/>
+                            <Button x:Name="button11" Content="Login" HorizontalAlignment="Left" Margin="141,224,0,0" VerticalAlignment="Top" Width="162" Background="{x:Null}" Foreground="#FF6C5B0F" Height="28" FontSize="18" Click="button11_Click"/>
+                            <Label x:Name="label9" Visibility="Hidden" Content="Invalid Credentials" HorizontalAlignment="Left" Margin="164,266,0,0" VerticalAlignment="Top" Width="109" Foreground="Red"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem FontFamily="/D2NG 1.0;component/Resources/#AvQest" Header="Register">
+                        <TabItem.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="Black" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TabItem.Background>
+                        <Grid>
+                            <TextBox x:Name="textBox6" HorizontalAlignment="Left" Height="41" Margin="132,77,0,0" TextWrapping="Wrap" Text="Account" VerticalAlignment="Top" Width="213" Background="{x:Null}" Foreground="#FF6C5B0F" FontSize="20" TextAlignment="Center" GotFocus="textBox5_GotFocus" LostFocus="textBox5_LostFocus">
+                                <TextBox.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                        <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                        <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                        <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </TextBox.BorderBrush>
+                            </TextBox>
+                            <Label x:Name="label6" Content="Password" HorizontalAlignment="Center" Margin="132,128,145,0" VerticalAlignment="Top" Foreground="#FF6C5B0F" Height="41" Width="213" FontSize="20" HorizontalContentAlignment="Center"/>
+                            <PasswordBox x:Name="passwordBox1" HorizontalAlignment="Left" Margin="132,127,0,0" VerticalAlignment="Top" Height="41" Width="213" Background="{x:Null}" Foreground="#FF6C5B0F" FontSize="22" GotFocus="passwordBox1_GotFocus" LostFocus="passwordBox1_LostFocus">
+                                <PasswordBox.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                        <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                        <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                        <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </PasswordBox.BorderBrush>
+                            </PasswordBox>
+                            <Label x:Name="label7" Content="Password Again" HorizontalAlignment="Center" Margin="132,173,145,0" VerticalAlignment="Top" Foreground="#FF6C5B0F" Height="41" Width="213" FontSize="20" HorizontalContentAlignment="Center"/>
+                            <PasswordBox x:Name="passwordBox2" HorizontalAlignment="Left" Margin="132,173,0,0" VerticalAlignment="Top" Height="41" Width="213" Background="{x:Null}" Foreground="#FF6C5B0F" FontSize="22" GotFocus="passwordBox2_GotFocus" LostFocus="passwordBox2_LostFocus">
+                                <PasswordBox.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                        <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                        <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                        <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </PasswordBox.BorderBrush>
+                            </PasswordBox>
+                            <TextBox x:Name="textBox10" HorizontalAlignment="Left" Height="41" Margin="132,226,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="213" Background="{x:Null}" Foreground="#FF6C5B0F" FontSize="20" TextAlignment="Center" GotFocus="textBox10_GotFocus" LostFocus="textBox10_LostFocus">
+                                <TextBox.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                        <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                        <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                        <GradientStop Color="#FF6C5B0F" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </TextBox.BorderBrush>
+                            </TextBox>
+                            <Button x:Name="button12" Content="Register" HorizontalAlignment="Left" Margin="132,272,0,0" VerticalAlignment="Top" Width="213" Background="{x:Null}" Foreground="#FF6C5B0F" Height="39" FontSize="20" Click="button12_Click"/>
+                            <Label Visibility="Hidden" x:Name="label" Content="Password Does not match!" HorizontalAlignment="Left" Margin="160,316,0,0" VerticalAlignment="Top" Foreground="Red" Background="{x:Null}"/>
+                            <Label Visibility="Hidden" x:Name="label5" Content="Username already exist!" HorizontalAlignment="Left" Margin="160,342,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="Red" Width="151"/>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </Grid>
+        <Button FontFamily="/D2NG 1.0;component/Resources/#AvQest" x:Name="button9" Content="Back" HorizontalAlignment="Left" Margin="715,568,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" BorderBrush="#FF6C5B0F" Foreground="#FF6C5B0F" Click="button9_Click"/>
+        <Button FontFamily="/D2NG 1.0;component/Resources/#AvQest" x:Name="button13" Content="Logout" HorizontalAlignment="Left" Margin="515,568,0,0" VerticalAlignment="Top" Width="94" Foreground="#FF6C5B0F" Background="{x:Null}" BorderBrush="#FF6C5B0F" Click="button13_Click"/>
+        <Grid Visibility="Hidden" x:Name="ReportWindow" HorizontalAlignment="Left" Height="83" Margin="220,214,0,0" VerticalAlignment="Top" Width="374" Background="Black">
+            <Border BorderBrush="#FF6C5B0F" BorderThickness="1" HorizontalAlignment="Left" Height="83" VerticalAlignment="Top" Width="374"/>
+            <Label x:Name="ReportName" Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="354" Foreground="#FF6C5B0F"/>
+            <ComboBox SelectedIndex="1" x:Name="Reasons" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="134" Background="Black" Foreground="#FF6C5B0F" BorderBrush="#FF6C5B0F">
+                <MenuItem Header="Hacks"/>
+                <MenuItem Header="Spam"/>
+                <MenuItem Header="Scam"/>
+            </ComboBox>
+            <Button x:Name="SendReport" Content="Send" HorizontalAlignment="Left" Margin="209,51,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.067,0.5" Click="SendReport_Click" Foreground="#FF6C5B0F" Background="Black" BorderBrush="Black"/>
+            <Button x:Name="CloseReport" Content="Close" HorizontalAlignment="Left" Margin="289,51,0,0" VerticalAlignment="Top" Width="75" Click="CloseReport_Click" Background="Black" Foreground="#FF6C5B0F" BorderBrush="Black"/>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

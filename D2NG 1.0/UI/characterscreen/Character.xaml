@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="D2NG.UI.Character"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:D2NG.UI"
+            HorizontalAlignment="Stretch"
+	        VerticalAlignment="Stretch"
+	        HorizontalContentAlignment="Stretch"
+	        VerticalContentAlignment="Stretch"
+             Height="80"
+             Width="347"
+             mc:Ignorable="d" OpacityMask="#FFF02A2A" IsManipulationEnabled="True">
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown" Background="#00000000">
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="82" VerticalAlignment="Top" Width="347" Source="pack://siteoforigin:,,,/Resources/Charborder.png" Stretch="Fill" Margin="0,0,0,-2" Visibility="Hidden"/>
+        <Image x:Name="CharIMG" HorizontalAlignment="Left" Margin="10,10,0,0" Width="76" Source="../../Resources/AmA.png" Stretch="Fill" Height="60" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="CharacterNam,e" Margin="105,-5,0,0" FontSize="18" Foreground="#FF8F8F41" HorizontalAlignment="Left" Width="232" Height="38" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Level 99 Class" Margin="105,13,0,0" FontSize="14" Foreground="White" HorizontalAlignment="Left" Width="232" Height="28" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="" Margin="105,25,0,0" FontSize="14" Foreground="#FF0CFF00" HorizontalAlignment="Left" Width="237" Height="25" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="" Margin="105,38,0,0" FontSize="14" Foreground="#FF8F8F41" HorizontalAlignment="Left" Width="237" Height="27" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Content="Expires" Margin="105,52,0,-2" Background="#00494949" Foreground="Red" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="237"/>
+
+    </Grid>
+</UserControl>
