@@ -1,0 +1,6 @@
+C:\Users\Katuro\Desktop\Alchemy-Websockets-wss\src\Alchemy\bin\Release\Alchemy.config
+C:\Users\Katuro\Desktop\Alchemy-Websockets-wss\src\Alchemy\bin\Release\Alchemy.dll
+C:\Users\Katuro\Desktop\Alchemy-Websockets-wss\src\Alchemy\bin\Release\Alchemy.pdb
+C:\Users\Katuro\Desktop\Alchemy-Websockets-wss\src\Alchemy\obj\Release\Alchemy.dll
+C:\Users\Katuro\Desktop\Alchemy-Websockets-wss\src\Alchemy\obj\Release\Alchemy.pdb
+C:\Users\Katuro\Desktop\Alchemy-Websockets-wss\src\Alchemy\obj\Release\Alchemy.csprojResolveAssemblyReference.cache

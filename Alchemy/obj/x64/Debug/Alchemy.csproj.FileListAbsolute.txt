@@ -1,0 +1,6 @@
+D:\Projects\SocialServer - Websocket\Alchemy\bin\x64\Debug\Alchemy.config
+D:\Projects\SocialServer - Websocket\Alchemy\bin\x64\Debug\Alchemy.dll
+D:\Projects\SocialServer - Websocket\Alchemy\bin\x64\Debug\Alchemy.pdb
+D:\Projects\SocialServer - Websocket\Alchemy\obj\x64\Debug\Alchemy.dll
+D:\Projects\SocialServer - Websocket\Alchemy\obj\x64\Debug\Alchemy.pdb
+D:\Projects\SocialServer - Websocket\Alchemy\obj\x64\Debug\Alchemy.csprojResolveAssemblyReference.cache

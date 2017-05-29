@@ -1,0 +1,6 @@
+C:\Users\Katuro\documents\visual studio 2015\Projects\D2NG 1.0\Alchemy\bin\x86\Debug\Alchemy.config
+C:\Users\Katuro\documents\visual studio 2015\Projects\D2NG 1.0\Alchemy\bin\x86\Debug\Alchemy.dll
+C:\Users\Katuro\documents\visual studio 2015\Projects\D2NG 1.0\Alchemy\bin\x86\Debug\Alchemy.pdb
+C:\Users\Katuro\documents\visual studio 2015\Projects\D2NG 1.0\Alchemy\obj\x86\Debug\Alchemy.dll
+C:\Users\Katuro\documents\visual studio 2015\Projects\D2NG 1.0\Alchemy\obj\x86\Debug\Alchemy.pdb
+C:\Users\Katuro\documents\visual studio 2015\Projects\D2NG 1.0\Alchemy\obj\x86\Debug\Alchemy.csprojResolveAssemblyReference.cache

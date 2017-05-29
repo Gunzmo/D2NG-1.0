@@ -1,0 +1,12 @@
+C:\Users\Katuro\Desktop\Alchemy-Websockets-wss\src\Alchemy\bin\Debug\Alchemy.config
+C:\Users\Katuro\Desktop\Alchemy-Websockets-wss\src\Alchemy\bin\Debug\Alchemy.dll
+C:\Users\Katuro\Desktop\Alchemy-Websockets-wss\src\Alchemy\bin\Debug\Alchemy.pdb
+C:\Users\Katuro\Desktop\Alchemy-Websockets-wss\src\Alchemy\obj\Debug\Alchemy.csprojResolveAssemblyReference.cache
+C:\Users\Katuro\Desktop\Alchemy-Websockets-wss\src\Alchemy\obj\Debug\Alchemy.dll
+C:\Users\Katuro\Desktop\Alchemy-Websockets-wss\src\Alchemy\obj\Debug\Alchemy.pdb
+C:\Users\Katuro\Documents\Visual Studio 2015\Projects\D2NG 1.0\Alchemy\bin\Debug\Alchemy.config
+C:\Users\Katuro\Documents\Visual Studio 2015\Projects\D2NG 1.0\Alchemy\bin\Debug\Alchemy.dll
+C:\Users\Katuro\Documents\Visual Studio 2015\Projects\D2NG 1.0\Alchemy\bin\Debug\Alchemy.pdb
+C:\Users\Katuro\Documents\Visual Studio 2015\Projects\D2NG 1.0\Alchemy\obj\Debug\Alchemy.csprojResolveAssemblyReference.cache
+C:\Users\Katuro\Documents\Visual Studio 2015\Projects\D2NG 1.0\Alchemy\obj\Debug\Alchemy.dll
+C:\Users\Katuro\Documents\Visual Studio 2015\Projects\D2NG 1.0\Alchemy\obj\Debug\Alchemy.pdb
